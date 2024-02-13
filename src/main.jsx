@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {Login,Signup } from './components'
+import {Login,Signup,Dashboard} from './components'
 import Layout from './Layout'
 import { createBrowserRouter ,createRoutesFromElements,Route,RouterProvider} from 'react-router-dom'
 import './index.css'
@@ -8,7 +8,7 @@ import './index.css'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout/>}>
-      
+     <Route path='dashboard' element={<Dashboard/>}/>
       <Route path='signup' element={<Signup/>}/>
       <Route path='login' element={<Login/>}/>
     </Route>
