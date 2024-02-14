@@ -1,9 +1,12 @@
-import React from 'react'
+import React,{ useState } from 'react'
 
 function Login() {
+    const [username, setUsername] =useState('')
+    const [password, setPassword] =useState('')
 
-    const onSubmitHandler= () => {
-
+    const onSubmitHandler= (e) => {
+        e.preventDefault();
+        
     }
   return (
     <div class="min-h-screen flex items-center justify-center bg-gray-100">
@@ -21,8 +24,8 @@ function Login() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             placeholder='Enter your Email Id' 
-            value =''
-
+            value ={username}
+            onChange={(e)=> setUsername(e.target.value)}
             />
         </div>
         <div className=''>
@@ -33,7 +36,8 @@ function Login() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="password" 
             placeholder='Enter your password'
-            value=''
+            value={password}
+            onChange={(e)=> setPassword(e.target.value)}
             />
         </div>
         <div className='mb-4 text-right'>
@@ -45,7 +49,9 @@ function Login() {
             </a>
             </div>
         <div>
-            <button className="bg-purple-500 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded-full">
+            <button
+            type='submit' 
+            className="bg-purple-500 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded-full">
                 LOGIN
             </button>
         </div>
