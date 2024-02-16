@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Signup() {
 
+    const [username,setUsername]= useState('');
+    const [email,setEmail] =useState('');
+    const [password,setPassword]= useState('');
+    const [confirmPassword,setConfirmPassword] =useState('');
     const onSubmitHandler = ()=> {
-
+        e.preventDefault()
     }
 
   return (
@@ -22,7 +26,8 @@ function Signup() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             placeholder='Enter your Username' 
-            value =''
+            value ={username}
+            onChange={(e)=> setUsername(e.target.value)}
 
             />
         </div>
@@ -34,7 +39,8 @@ function Signup() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="email"
             placeholder='Enter your Email' 
-            value =''
+            value ={email}
+            onChange={(e)=> setEmail(e.target.value)}
 
             />
         </div>
@@ -46,7 +52,8 @@ function Signup() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="password" 
             placeholder='Enter your password'
-            value=''
+            value={password}
+            onChange={(e)=> setPassword(e.target.value)}
             />
         </div>
         <div className='mb-4'>
@@ -57,7 +64,8 @@ function Signup() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="email"
             placeholder='Confirm your password' 
-            value =''
+            value ={confirmPassword}
+            onChange={(e)=> setConfirmPassword(e.target.value)}
 
             />
         </div>
