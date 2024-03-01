@@ -11,7 +11,7 @@ function Register() {
 
     const navigate = useNavigate()
 
-    const onSubmitHandler = ()=> {
+    const onSubmitHandler = (e)=> {
         e.preventDefault()
         axios.post('http://localhost:8000/register',{username,email,password,confirmPassword})
         .then(result=> {
@@ -22,7 +22,7 @@ function Register() {
     }
 
   return (
-    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
        <form 
        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
        onSubmit={onSubmitHandler}>
