@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header,Login,Signup } from './components'
+import { Header,Login,Register } from './components'
 import { Outlet } from 'react-router-dom'
 
 function Layout() {

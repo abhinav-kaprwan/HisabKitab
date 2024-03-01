@@ -1,7 +1,7 @@
 import Login from "./Login";
-import Signup from "./Signup";
+import Register from "./Register";
 import Header from "./Header";
 import Dashboard from "./Dashboard";
 import Home from "./Home";
 
-export {Login,Header,Dashboard,Home,Signup}
+export {Login,Header,Dashboard,Home,Register}
