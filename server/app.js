@@ -17,10 +17,10 @@ app.get('/', (req,res)=> {
     res.send('hello world')
 })
 
-app.post('/register', async (req,res)=> {
-    const {userName, email, password, confirmPassword} = req.body
+app.post('/api/register', async (req,res)=> {
+    const {username, email, password, confirmPassword} = req.body
     if (
-        [userName,email, password, confirmPassword].some((field) => field?.trim() === "")
+        [username,email, password, confirmPassword].some((field) => field?.trim() === "")
     ) {
         throw new ApiError(400, "All fields are required")
     }
@@ -29,7 +29,7 @@ app.post('/register', async (req,res)=> {
         throw new ApiError(402, "See you password again")
     }
     const existedUser = await User.findOne({
-        $or: [{ userName }, { email }]
+        $or: [{ username }, { email }]
     })
 
     if(existedUser) {
@@ -37,7 +37,7 @@ app.post('/register', async (req,res)=> {
     }
 
     const user = await User.create({
-        userName,
+        username,
         email,
         password
     })
