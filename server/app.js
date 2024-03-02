@@ -1,51 +1,26 @@
 import express from "express";
 import cors from "cors";
-import mongoose from "mongoose";
-import { DB_NAME } from "./constants.js";
 import 'dotenv/config'
-import { User } from "./models/user.model.js";
-import { ApiError } from "./utils/ApiError.js";
-import { ApiResponse } from "./utils/ApiResponse.js";
+import { Router } from "express";
+import { registerUser } from "./src/controllers/user.js";
+import { connectDB } from "./src/db/index,js";
 const app = express();
 app.use(cors())
 app.use(express.json()) 
 
+const router = Router()
 
-mongoose.connect(`${process.env.MONGODB_URL}/${DB_NAME}`);
-
-app.get('/', (req,res)=> {
-    res.send('hello world')
-})
-
-app.post('/api/register', async (req,res)=> {
-    const {username, email, password, confirmPassword} = req.body
-    if (
-        [username,email, password, confirmPassword].some((field) => field?.trim() === "")
-    ) {
-        throw new ApiError(400, "All fields are required")
-    }
-    
-    if(password !== confirmPassword) {
-        throw new ApiError(402, "See you password again")
-    }
-    const existedUser = await User.findOne({
-        $or: [{ username }, { email }]
+connectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 8000, ()=> {
+        console.log(`Server is running on Port ${process.env.PORT}`)
     })
-
-    if(existedUser) {
-        throw new ApiError(401, "User already exist")
-    }
-
-    const user = await User.create({
-        username,
-        email,
-        password
-    })
-
-    return res.status(201).json(
-        new ApiResponse(200, user, "User registered Successfully")
-    )
 })
-app.listen(8000, ()=> {
-    console.log(`Server is running on Port ${process.env.PORT}`)
+.catch((error)=>{
+    console.log("MongoDb connection failed", error)
 })
+
+app.post("/api/register",registerUser)
+
+
+
