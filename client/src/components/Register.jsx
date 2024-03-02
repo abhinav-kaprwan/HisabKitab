@@ -14,7 +14,7 @@ function Register() {
     const onSubmitHandler = (e)=> {
         e.preventDefault()
         axios.post('/api/register',{username,email,password,confirmPassword})
-        .then(result=> {
+        .then((result)=> {
             console.log(result)
             navigate('/dashboard')
         })

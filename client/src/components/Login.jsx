@@ -1,12 +1,21 @@
 import React,{ useState } from 'react'
-
+import axios from "axios"
+import { useNavigate } from 'react-router-dom'
 function Login() {
     const [username, setUsername] =useState('')
     const [password, setPassword] =useState('')
+    const navigate = useNavigate()
 
     const onSubmitHandler= (e) => {
         e.preventDefault();
-        
+        axios.post('/api/login',{username, password})
+        .then((result)=>{ 
+            console.log(result)
+            navigate('/dashboard')
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
     }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
