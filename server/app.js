@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import 'dotenv/config'
 import { Router } from "express";
-import { registerUser } from "./src/controllers/user.js";
+import { loginUser, registerUser } from "./src/controllers/user.js";
 import { connectDB } from "./src/db/index,js";
 const app = express();
 app.use(cors())
@@ -21,6 +21,7 @@ connectDB()
 })
 
 app.post("/api/register",registerUser)
+app.post("/api/login",loginUser)
 
 
 

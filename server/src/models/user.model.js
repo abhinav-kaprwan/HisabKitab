@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    refreshToken: {
+    accessToken: {
         type:String,
     }
 },{timestamps:true})
