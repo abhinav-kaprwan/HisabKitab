@@ -109,7 +109,7 @@ const loginUser = async(req,res)=> {
     }
 
     return res
-    .send(201)
+    .status(201)
     .cookie("accessToken",accessToken,options)
     .json(
          new ApiResponse(200,"User Logged in successfully")
