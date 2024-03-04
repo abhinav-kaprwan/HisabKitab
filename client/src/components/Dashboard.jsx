@@ -1,8 +1,11 @@
 import React from 'react'
+import {Button} from "./ui/button"
+import SideNavbar from './SideNavbar'
 function Dashboard() {
   return (
     <>
-   Dashboard
+   <Button>Hello shadcn</Button>
+   <SideNavbar></SideNavbar>
     </>
   )
 }
