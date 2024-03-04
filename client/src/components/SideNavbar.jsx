@@ -1,59 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Nav } from './ui/Nav'
-import {
-    AlertCircle,
-    Archive,
-    ArchiveX,
-    File,
-    Inbox,
-    MessagesSquare,
-    PenBox,
-    Search,
-    Send,
-    ShoppingCart,
-    Trash2,
-    Users2,
-  } from "lucide-react"
+
+import { LayoutDashboard,Contact2 ,BadgeDollarSign,Settings,LogOut,ChevronRight,ChevronLeft} from 'lucide-react'
+import { Button } from './ui/button'
 function SideNavbar() {
+  const [isCollapsed, setIsCollapsed] = useState(false)
+  const [showComponent, setShowComponent]= useState(false)
+  const toggleSidebar= ()=> {
+    setIsCollapsed(!isCollapsed)
+    setShowComponent(!showComponent)
+  } 
   return (
-    <div>
+    <div className='relative min-w-[80px] border-r px-3 pb-10 pt-24'> 
+      <div className='absolute right-[-20px] top-7'>
+        <Button 
+        onClick={toggleSidebar} 
+        variant='secondary' 
+        className='rounded-full p-4'>
+          {showComponent ? <ChevronRight /> : <ChevronLeft />}
+        </Button>
+      </div>
         <Nav
-            isCollapsed={false}
+            isCollapsed={isCollapsed}
             links={[
               {
-                title: "Inbox",
-                label: "128",
-                icon: Inbox,
+                title: "Dashboard",
+                to: "/",
+                icon: LayoutDashboard,
                 variant: "default",
               },
               {
-                title: "Drafts",
-                label: "9",
-                icon: File,
+                title: "Friends",
+                to: "/friends",
+                icon: Contact2,
                 variant: "ghost",
               },
               {
-                title: "Sent",
-                label: "",
-                icon: Send,
+                title: "Transactions",
+                to: "/transactions",
+                icon: BadgeDollarSign,
                 variant: "ghost",
               },
               {
-                title: "Junk",
-                label: "23",
-                icon: ArchiveX,
+                title: "Settings",
+                to: "/settings",
+                icon: Settings,
                 variant: "ghost",
               },
               {
-                title: "Trash",
-                label: "",
-                icon: Trash2,
-                variant: "ghost",
-              },
-              {
-                title: "Archive",
-                label: "",
-                icon: Archive,
+                title: "Logout",
+                to: "/logout",
+                icon: LogOut,
                 variant: "ghost",
               },
             ]}

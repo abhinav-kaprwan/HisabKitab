@@ -9,6 +9,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "./tooltip"
+import { TooltipProvider } from "@radix-ui/react-tooltip"
 
 const NavProps = {
   isCollapsed: true,
@@ -17,7 +18,8 @@ const NavProps = {
         title: "home",
         label: "label",
         // icon: LucideIcon,
-        variant: "default" | "ghost"
+        variant: "default" | "ghost",
+        to: ""
       }
   ]
 }
@@ -25,7 +27,8 @@ const NavProps = {
 export function Nav(NavProps) {
     const {isCollapsed, links}= NavProps
   return (
-    <div
+    <TooltipProvider>
+      <div
       data-collapsed={isCollapsed}
       className="group flex flex-col gap-4 py-2 data-[collapsed=true]:py-2"
     >
@@ -35,7 +38,7 @@ export function Nav(NavProps) {
             <Tooltip key={index} delayDuration={0}>
               <TooltipTrigger asChild>
                 <Link
-                  href="#"
+                  to= {link.to}
                   className={cn(
                     buttonVariants({ variant: link.variant, size: "icon" }),
                     "h-9 w-9",
@@ -59,7 +62,7 @@ export function Nav(NavProps) {
           ) : (
             <Link
               key={index}
-              href="#"
+              to = {link.to}
               className={cn(
                 buttonVariants({ variant: link.variant, size: "sm" }),
                 link.variant === "default" &&
@@ -85,5 +88,6 @@ export function Nav(NavProps) {
         )}
       </nav>
     </div>
+    </TooltipProvider>
   )
 }

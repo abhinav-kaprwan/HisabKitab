@@ -4,8 +4,11 @@ import SideNavbar from './SideNavbar'
 function Dashboard() {
   return (
     <>
-   <Button>Hello shadcn</Button>
-   <SideNavbar></SideNavbar>
+   <div className='min-h-screen w-full bg-white text-black flex'>
+    <SideNavbar></SideNavbar>
+    <div className='p-8 w-full'
+    >hello</div>
+   </div>
     </>
   )
 }
