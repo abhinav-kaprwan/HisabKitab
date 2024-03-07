@@ -25,31 +25,31 @@ function SideNavbar() {
             links={[
               {
                 title: "Dashboard",
-                to: "/",
+                to: "/dashboard",
                 icon: LayoutDashboard,
                 variant: "default",
               },
               {
                 title: "Friends",
-                to: "/friends",
+                to: "/dashboard/friends",
                 icon: Contact2,
                 variant: "ghost",
               },
               {
                 title: "Transactions",
-                to: "/transactions",
+                to: "/dashboard/transactions",
                 icon: BadgeDollarSign,
                 variant: "ghost",
               },
               {
                 title: "Settings",
-                to: "/settings",
+                to: "/dashboard/settings",
                 icon: Settings,
                 variant: "ghost",
               },
               {
                 title: "Logout",
-                to: "/logout",
+                to: "/dashboard/logout",
                 icon: LogOut,
                 variant: "ghost",
               },
