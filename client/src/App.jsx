@@ -1,21 +1,55 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {Login,Home,Register,Dashboard} from './components'
+import {Login,Home,Register,Dashboard,Friends,Transactions, Settings, Logout} from './components'
 import Layout from './Layout'
-import { BrowserRouter ,Routes,Route} from 'react-router-dom'
+import { createBrowserRouter,RouterProvider} from 'react-router-dom'
 import './index.css'
+
+
+const router = createBrowserRouter([
+  {
+    path:'/',
+    element:<Home/>
+  },
+  {
+    path:'/login',
+    element:<Login/>
+  },
+  {
+    path:'/register',
+    element:<Register/>
+  },
+  {
+    path:'/dashboard/',
+    element:<Layout/>,
+    children:[
+      {
+        path:'',
+        element:<Dashboard/>
+      },
+      {
+        path:'friends',
+        element:<Friends/>
+      },
+      {
+        path:'transactions',
+        element:<Transactions/>
+      },
+      {
+        path:'settings',
+        element:<Settings/>
+      },
+      {
+        path:'logout',
+        element:<Logout/>
+      }
+    ]
+  },
+])
 
 function App() {
   return (
-    <BrowserRouter>
-    <Routes>
-        <Route path= '/' element={<Home/>}/>
-        <Route path= '/register' element={<Register/>}/>
-        <Route path= '/login' element={<Login/>}/>
-        <Route path= '/dashboard/' element={<Layout/>}/>
-          <Route path= '' element={<Dashboard/>}/>
-    </Routes>
-    </BrowserRouter>
+    <RouterProvider router = {router}/>
   )
 }
 
