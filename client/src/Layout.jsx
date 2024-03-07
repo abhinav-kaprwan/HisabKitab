@@ -1,12 +1,16 @@
 import React from 'react'
-import { Header,Login,Register } from './components'
+import SideNavbar from './components/SideNavbar'
 import { Outlet } from 'react-router-dom'
 
 function Layout() {
   return (
     <>
-    <Header/>
-    <Outlet/>
+    <div className='min-h-screen w-full bg-white text-black flex'>
+      <SideNavbar/>
+      <div className='p-8 w-full'>
+        <Outlet/>
+      </div>
+   </div>
     </>
   )
 }
