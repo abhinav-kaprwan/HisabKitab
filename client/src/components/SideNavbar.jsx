@@ -3,25 +3,35 @@ import { Nav } from './ui/Nav'
 
 import { LayoutDashboard,Contact2 ,BadgeDollarSign,Settings,LogOut,ChevronRight,ChevronLeft} from 'lucide-react'
 import { Button } from './ui/button'
+
+import {
+  useWindowWidth,
+} from '@react-hook/window-size'
+
 function SideNavbar() {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [showComponent, setShowComponent]= useState(false)
+
+
+  const currentWidth = useWindowWidth()
+
+  const mobileWidth = currentWidth <768
   const toggleSidebar= ()=> {
     setIsCollapsed(!isCollapsed)
     setShowComponent(!showComponent)
   } 
   return (
     <div className='relative min-w-[80px] border-r px-3 pb-10 pt-24'> 
-      <div className='absolute right-[-20px] top-7'>
+      {!mobileWidth && <div className='absolute right-[-20px] top-7'>
         <Button 
         onClick={toggleSidebar} 
         variant='secondary' 
         className='rounded-full p-4'>
           {showComponent ? <ChevronRight /> : <ChevronLeft />}
         </Button>
-      </div>
+      </div>}
         <Nav
-            isCollapsed={isCollapsed}
+            isCollapsed={mobileWidth?true:isCollapsed}
             links={[
               {
                 title: "Dashboard",
