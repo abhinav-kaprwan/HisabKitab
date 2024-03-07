@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
 } from "./tooltip"
 import { TooltipProvider } from "@radix-ui/react-tooltip"
+import { useLocation } from "react-router-dom"
 
 const NavProps = {
   isCollapsed: true,
@@ -26,6 +27,9 @@ const NavProps = {
 
 export function Nav(NavProps) {
     const {isCollapsed, links}= NavProps
+
+    const location = useLocation()
+
   return (
     <TooltipProvider>
       <div
@@ -40,7 +44,7 @@ export function Nav(NavProps) {
                 <Link
                   to= {link.to}
                   className={cn(
-                    buttonVariants({ variant: link.variant, size: "icon" }),
+                    buttonVariants({ variant: location.pathname===link.to?'default':'ghost', size: "icon" }),
                     "h-9 w-9",
                     link.variant === "default" &&
                       "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
@@ -64,7 +68,7 @@ export function Nav(NavProps) {
               key={index}
               to = {link.to}
               className={cn(
-                buttonVariants({ variant: link.variant, size: "sm" }),
+                buttonVariants({ variant: location.pathname===link.to?'default':'ghost', size: "sm" }),
                 link.variant === "default" &&
                   "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
                 "justify-start"
