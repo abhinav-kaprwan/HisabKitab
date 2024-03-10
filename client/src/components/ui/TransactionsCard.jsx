@@ -16,6 +16,7 @@ function TransactionsCard({
             </div>
         </div>
         </section>
+        <p>{transactionAmount}</p>
     </div>
   )
 }

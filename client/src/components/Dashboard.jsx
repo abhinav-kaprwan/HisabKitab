@@ -3,6 +3,7 @@ import { CardContent } from './ui/Card'
 import { DollarSign } from 'lucide-react'
 import Card from './ui/Card'
 import Graph from './ui/Graph'
+import TransactionsCard from './ui/TransactionsCard'
 const cardData = [
   {
     title:"Total Lending",
@@ -29,6 +30,34 @@ const cardData = [
     description:"It's something to test"
   },
 ]
+
+const uesrTransactionData = [
+  {
+    name: "Olivia Martin",
+    email: "olivia.martin@email.com",
+    TransactionAmount: "+$1,999.00"
+  },
+  {
+    name: "Jackson Lee",
+    email: "isabella.nguyen@email.com",
+    TransactionAmount: "+$1,999.00"
+  },
+  {
+    name: "Isabella Nguyen",
+    email: "isabella.nguyen@email.com",
+    TransactionAmount: "+$39.00"
+  },
+  {
+    name: "William Kim",
+    email: "will@email.com",
+    TransactionAmount: "+$299.00"
+  },
+  {
+    name: "Sofia Davis",
+    email: "sofia.davis@email.com",
+    TransactionAmount: "+$39.00"
+  }
+];
 function Dashboard() {
   return (
     <div className='flex flex-col gap-5 w-full'>
@@ -57,6 +86,14 @@ function Dashboard() {
               You made 200 transactions this month
             </p>
           </section>
+          {uesrTransactionData.map((data,index)=> (
+            <TransactionsCard
+            key={index}
+            name={data.name}
+            email={data.email}
+            transactionAmount={data.TransactionAmount}
+            />
+          ))}
         </CardContent>
           
       </section>
