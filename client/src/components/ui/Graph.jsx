@@ -1,5 +1,10 @@
 import React from 'react'
-import { BarChart,ResponsiveContainer } from 'recharts';
+import { BarChart,
+  ResponsiveContainer,
+  CartesianGrid,
+  Bar, Rectangle, 
+  XAxis, YAxis,
+  Tooltip, Legend} from 'recharts';
 
 
 const data = [

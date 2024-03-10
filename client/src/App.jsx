@@ -4,6 +4,7 @@ import {Login,Home,Register,Dashboard,Friends,Transactions, Settings, Logout} fr
 import Layout from './Layout'
 import { createBrowserRouter,RouterProvider} from 'react-router-dom'
 import './index.css'
+import Graph from './components/ui/Graph'
 
 
 const router = createBrowserRouter([

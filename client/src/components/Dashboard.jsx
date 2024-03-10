@@ -2,8 +2,7 @@ import React from 'react'
 import { CardContent } from './ui/Card'
 import { DollarSign } from 'lucide-react'
 import Card from './ui/Card'
-import {Graph} from './ui/Graph'
-
+import Graph from './ui/Graph'
 const cardData = [
   {
     title:"Total Lending",
@@ -49,9 +48,17 @@ function Dashboard() {
       </section>
       <section className='grid grid-cols-1 gap-4 transition-all lg:grid-cols-2'>
         <CardContent>
-          <Graph/>
+            <Graph/>
         </CardContent>
-        
+        <CardContent>
+          <section>
+            <p>Recent Transactions</p>
+            <p className='text-sm text-gray-400'>
+              You made 200 transactions this month
+            </p>
+          </section>
+        </CardContent>
+          
       </section>
     </div>
   )
