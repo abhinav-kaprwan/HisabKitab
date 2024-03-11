@@ -6,15 +6,94 @@ export const data= [
     name: "728ed52f",
     email: 100,
     time: "pending",
-    email: "m@example.com",
+    amount: "m@example.com",
+  },{
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
   },
   {
-    id: "489e1d42",
-    amount: 125,
-    status: "processing",
-    email: "example@gmail.com",
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
   },
-  // ...
+  {
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },
+  {
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },{
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },
+  {
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },
+  {
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },
+  {
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },{
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },
+  {
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },
+  {
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },
+  {
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },{
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },
+  {
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },
+  {
+    name: "728ed52f",
+    email: 100,
+    time: "pending",
+    amount: "m@example.com",
+  },
 ]
 
 export const columns= [
