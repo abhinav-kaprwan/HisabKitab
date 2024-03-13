@@ -68,15 +68,15 @@ const registerUser = async (req,res)=> {
 
 const loginUser = async(req,res)=> {
     // take all the values from user
-    const {username,password} = req.body
+    const {username,email,password} = req.body
 
     //Validation
-    if(!(username && password)) {
+    if(!((username|| email) && password)) {
         throw new ApiError(401,"Fill all the details")
     }
     // FInd on the database
 
-    const user = await User.findOne({username})
+    const user = await User.findOne({ $or: [{ username }, { email }] })
 
     if(!user) {
         throw new ApiError(403, "User doesnot exist")
@@ -115,5 +115,9 @@ const loginUser = async(req,res)=> {
          new ApiResponse(200,"User Logged in successfully")
     )
 
+}
+
+const logoutUser = async(req,res)=>{
+    
 }
 export {registerUser,loginUser}
